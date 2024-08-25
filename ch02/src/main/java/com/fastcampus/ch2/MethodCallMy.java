@@ -7,8 +7,8 @@ import java.util.Iterator;
 import java.util.Scanner;
 
 class ModelControllerMy{
-	public String main(HashMap map) {
-		map.put("id", "map put id");
+	public String main(HashMap map) {	//Controller
+		map.put("id", "map_put_id");
 		map.put("pwd", "1111");
 		
 		return "txtView2";
@@ -18,7 +18,7 @@ class ModelControllerMy{
 
 public class MethodCallMy {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Exception {	//DispatherServlet
 		HashMap map = new HashMap();
 		System.out.println("before:"+map);
 		
@@ -30,7 +30,7 @@ public class MethodCallMy {
 		render(map, viewName);
 	}
 
-	static void render(HashMap map, String viewName) throws IOException {
+	static void render(HashMap map, String viewName) throws IOException { 	//View - jsp
 		String result = "";
 		
 		//1. 뷰의 내용을 한줄씩 읽어서 하나의 문자열로 만든다.
@@ -47,7 +47,9 @@ public class MethodCallMy {
 			String key = (String)it.next();
 			
 			//3. replace()로 key를 value 치환한다.
-		result = result.replace("${"+key+"}", (String)map.get(key));
+			result = result.replace("${"+key+"}", (String)map.get(key));
 		}
+		
+		System.out.println(result);
 	}
 }

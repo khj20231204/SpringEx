@@ -37,9 +37,4 @@ public class MethodInfo {
 	} // main
 }
 
-/* [실행결과]
-java.lang.String main(java.lang.String year, java.lang.String month, java.lang.String day, org.springframework.ui.Model model)
-boolean isValid(int year, int month, int day)
-*/
-
 
