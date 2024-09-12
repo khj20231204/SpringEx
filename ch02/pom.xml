@@ -145,6 +145,14 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            
+            <!-- pom 첫 줄 빨간줄 -->
+			<plugin>
+			  <groupId>org.apache.maven.plugins</groupId>
+			  <artifactId>maven-war-plugin</artifactId>
+			  <version>3.3.2</version>
+			</plugin>
+		
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -153,6 +161,7 @@
                     <mainClass>org.test.int1.Main</mainClass>
                 </configuration>
             </plugin>
+            
         </plugins>
     </build>
 </project>
