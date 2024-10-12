@@ -13,7 +13,5 @@ public interface BoardDao {
 
 	int getCount();
 
-	Board getBoardList(int page);
-	
-	
+	List<Board> getBoardList(int page);
 }

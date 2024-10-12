@@ -22,10 +22,8 @@ public class BoardService {
 		return dao.getCount();
 	}
 
-	public Board getBoardList(int page) {
+	public List<Board> getBoardList(int page) {
+		// TODO Auto-generated method stub
 		return dao.getBoardList(page);
-		
 	}
-	
-	
 }

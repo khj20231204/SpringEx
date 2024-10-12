@@ -44,10 +44,35 @@ public class BoardController {
 		//int page = 1; <- 이 구문이 없어진다
 		
 		int limit = 10;
+		
 		int listcount = service.getCount();
-		System.out.println("listcount:"+listcount);
-		Board list = service.getBoardList(page);
-		System.out.println(list);
-		return "";
+		System.out.println(listcount);
+		
+		int startRow = (page-1)*limit + 1;
+		int endRow = page * limit;
+		
+		//startRow, endRow로 게시판 목록 10개 구하기
+		//List<Board> boardlist = service.getBoardList(startRow, endRow);
+		//xml파일에 매개변수 2개를 전달 못함
+		List<Board> boardlist = service.getBoardList(page);
+		System.out.println(boardlist);
+		
+		int pageCount = listcount / limit + ((listcount%10 == 0) ? 0 : 1);
+		
+		int startPage = ((page - 1)/10) * limit + 1;
+		int endPage = startPage + 10 - 1;
+	
+		if(endPage > pageCount) {
+			endPage = pageCount;
+		}
+		
+		model.addAttribute("page", page);
+		model.addAttribute("listcount", listcount);
+		model.addAttribute("boardlist", boardlist);
+		model.addAttribute("pageCount", pageCount);
+		model.addAttribute("startPage", startPage);
+		model.addAttribute("endPage", endPage);
+		
+		return "board/boardlist";
 	}
 }
