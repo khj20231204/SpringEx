@@ -37,4 +37,25 @@
 		where rnum >= ((#{page}-1) * 10+1) and rnum <= (#{page}*10)
 	]]>
 	</select>
+	
+	<!-- 조회수 1증가 -->
+	<update id="updatecount" parameterType="int">
+		update myboard set readcount = readcount+1 where no = #{no}
+	</update>
+	
+	<!-- 글상세 가져오기 -->
+	<select id="getBoard" parameterType="int" resultType="Board">
+		select * from myboard where no = #{no}
+	</select>
+	
+	<!-- 글 수정 -->
+	<update id="update" parameterType="board"> <!-- configuration.xml안에 alias로 설정된 board -->
+		update myboard set writer=#{writer}, subject=#{subject}, content=#{content}, register=sysdate where no = #{no}	
+	</update>
+	
+	<!-- 글 삭제 -->
+	<delete id="delete" parameterType="int" resultType="int">
+		delete from myboard set no = #{no}
+	</delete>
 </mapper>
+

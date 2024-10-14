@@ -26,4 +26,23 @@ public class BoardService {
 		// TODO Auto-generated method stub
 		return dao.getBoardList(page);
 	}
+
+	public void updatecount(int no) {
+		dao.updatecount(no);
+	}
+
+	public Board getBoard(int no) {
+		// TODO Auto-generated method stub
+		return dao.getBoard(no);
+	}
+
+	public int update(Board board) {
+		// TODO Auto-generated method stub
+		return dao.update(board);
+	}
+
+	public int delete(int no) {
+		// TODO Auto-generated method stub
+		return dao.delete(no);
+	}
 }

@@ -14,4 +14,12 @@ public interface BoardDao {
 	int getCount();
 
 	List<Board> getBoardList(int page);
+
+	void updatecount(int no);
+
+	Board getBoard(int no);
+
+	int update(Board board);
+
+	int delete(int no);
 }
